@@ -155,14 +155,6 @@ function renderAfterSearch(){
 		listDiv.innerHTML = errorElement;
 		document.querySelector('.resume').classList.add('hidden');
 	}
-	if(searchResults.length === 1) {
-		document.getElementById('next-btn').style.display = 'inline';
-		document.getElementById('prev-btn').style.display = 'inline';
-	}
-	else {
-		document.getElementById('next-btn').style.display = 'inline';
-		document.getElementById('prev-btn').style.display = 'inline';
-	}
 	showResultsAndHideResume();
 	searchResults.map(s => {
 		let elem = document.createElement("li");
@@ -185,6 +177,7 @@ function addSearchResultLink(results) {
 	elementToAdd.innerText = results.basics.name;
 	elementToAdd.setAttribute('href', '#');
 	elementToAdd.addEventListener('click', () => updateSearchResult(results));
+	document.querySelector('.resume').classList.remove('hidden');
 	elementToAdd.setAttribute('data', `result: ${results}`);
 	return elementToAdd;
 }	

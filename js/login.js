@@ -21,3 +21,11 @@ function clearInputs(){
     document.getElementById('username').value='';
     document.getElementById('password').value='';
 }
+
+function preventBack() {
+    window.history.forward();
+}
+
+setTimeout("preventBack()", 0);
+
+window.onunload = function () { null };
